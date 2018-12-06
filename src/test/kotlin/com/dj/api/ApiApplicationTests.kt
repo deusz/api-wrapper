@@ -8,7 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
+import org.hamcrest.CoreMatchers.`is`
 
 @RunWith(SpringRunner::class)
 @SpringBootTest
@@ -26,7 +27,7 @@ class ApiApplicationTests {
     fun whenGetPreorders_thenResponse200AndJson() {
         mvc.perform(
                 get("/api/v2/preorders"))
-                .andExpect(MockMvcResultMatchers.status().isOk)
+                .andExpect(status().isOk)
     }
 
 
