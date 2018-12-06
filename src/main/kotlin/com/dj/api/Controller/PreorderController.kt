@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping(name = "preorders", path = arrayOf("/api/v2/preorders"))
-class PreordersController {
+class PreorderController {
 
     @GetMapping
     fun create(@RequestParam params: Map<String, String>): Map<String, String> {
