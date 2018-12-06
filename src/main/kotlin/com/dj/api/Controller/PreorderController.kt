@@ -1,5 +1,6 @@
 package com.dj.api.Controller
 
+import com.dj.api.Model.Preorder
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -7,7 +8,7 @@ import org.springframework.web.bind.annotation.*
 class PreorderController {
 
     @GetMapping
-    fun create(@RequestParam params: Map<String, String>): Map<String, String> {
-        return params
+    fun getPreorders(): Array<Preorder> {
+        return arrayOf(Preorder("1222"))
     }
 }

@@ -26,8 +26,10 @@ class ApiApplicationTests {
     @Test
     fun whenGetPreorders_thenResponse200AndJson() {
         mvc.perform(
-                get("/api/v2/preorders"))
-                .andExpect(status().isOk)
+            get("/api/v2/preorders"))
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$[0].id", `is`("1222")))
+//            .andExpect(jsonPath("$._embedded.preorder[0].id", `is`("1222")))
     }
 
 
