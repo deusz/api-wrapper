@@ -23,7 +23,7 @@ class PreorderResourceAssembler : ResourceAssembler<Preorder, PreorderResource> 
     override fun toResource(preorder: Preorder): PreorderResource {
         val resource = PreorderResource(name = preorder.id)
 
-//        resource.add(linkTo(methodOn(CompanyEndpoint::class.java).findProductByCompanyAndId(product.company.id, product.id)).withSelfRel())
+//        resource.add(linkTo(methodOn(PreorderController::class.java).getPreorders()).withSelfRel())
 
         return resource
     }
