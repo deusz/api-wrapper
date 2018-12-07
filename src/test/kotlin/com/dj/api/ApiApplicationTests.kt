@@ -31,12 +31,22 @@ class ApiApplicationTests {
             .andExpect(content().string("{\n" +
                     "  \"_embedded\" : {\n" +
                     "    \"preorders\" : [ {\n" +
-                    "      \"name\" : \"1222\"\n" +
+                    "      \"name\" : \"1222\",\n" +
+                    "      \"_links\" : {\n" +
+                    "        \"self\" : {\n" +
+                    "          \"href\" : \"http://localhost/api/v2/preorders/1222\"\n" +
+                    "        }\n" +
+                    "      }\n" +
                     "    } ]\n" +
                     "  },\n" +
                     "  \"_links\" : {\n" +
                     "    \"self\" : {\n" +
-                    "      \"href\" : \"http://localhost/api/v2/preorders?page=1&sort.by=name&sort.dir={sort.dir}\"\n" +
+                    "      \"href\" : \"http://localhost/api/v2/preorders?page={page}&sort.by=name&sort.dir={sort.dir}\",\n" +
+                    "      \"templated\" : true\n" +
+                    "    },\n" +
+                    "    \"next\" : {\n" +
+                    "      \"href\" : \"http://localhost/api/v2/preorders?page={page}&sort.by=name&sort.dir={sort.dir}\",\n" +
+                    "      \"templated\" : true\n" +
                     "    }\n" +
                     "  }\n" +
                     "}"))

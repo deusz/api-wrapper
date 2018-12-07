@@ -24,4 +24,10 @@ class PreorderController(val assembler: PreorderResourceAssembler) {
 
         return ok(resources)
     }
+
+    @GetMapping
+    @RequestMapping("/api/v2/preorders/{id}")
+    fun getPreorder(@PathVariable("id") id: String): ResponseEntity<PreorderResource> =
+            ok(assembler.toResource(Preorder(id, 1)))
+
 }
