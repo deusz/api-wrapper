@@ -26,9 +26,20 @@ class ApiApplicationTests {
     @Test
     fun whenGetPreorders_thenResponse200AndJson() {
         mvc.perform(
-            get("/api/v2/preorders"))
+            get("/api/v2/preorders?page=1&sort.by=name"))
             .andExpect(status().isOk)
-            .andExpect(content().string("{\"_embedded\":{\"preorders\":[{\"name\":\"1222\"}]}}"))
+            .andExpect(content().string("{\n" +
+                    "  \"_embedded\" : {\n" +
+                    "    \"preorders\" : [ {\n" +
+                    "      \"name\" : \"1222\"\n" +
+                    "    } ]\n" +
+                    "  },\n" +
+                    "  \"_links\" : {\n" +
+                    "    \"self\" : {\n" +
+                    "      \"href\" : \"http://localhost/api/v2/preorders?page=1&sort.by=name&sort.dir={sort.dir}\"\n" +
+                    "    }\n" +
+                    "  }\n" +
+                    "}"))
 //            .andExpect(jsonPath("$[0].id", `is`("1222")))
 //            .andExpect(jsonPath("$._embedded.preorder[0].id", `is`("1222")))
     }
