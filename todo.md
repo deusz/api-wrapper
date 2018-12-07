@@ -1,6 +1,8 @@
 Do it:
 1. tests skeleton
 2. paging, sorting
+3. details endpoint
+4. service and kinguin client
 
 Requirements:
 ```

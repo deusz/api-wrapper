@@ -26,7 +26,7 @@ class ApiApplicationTests {
     @Test
     fun whenGetPreorders_thenResponse200AndJson() {
         mvc.perform(
-            get("/api/v2/preorders?page=1&sort.by=name"))
+            get("/api/v2/preorders?pagev=1&sort.by=name"))
             .andExpect(status().isOk)
             .andExpect(content().string("{\n" +
                     "  \"_embedded\" : {\n" +

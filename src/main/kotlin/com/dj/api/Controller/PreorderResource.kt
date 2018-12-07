@@ -21,8 +21,14 @@ class PreorderResourceAssembler : ResourceAssembler<Preorder, PreorderResource> 
     fun toResources(preorder: Iterable<Preorder>, page: Int?, sortBy: String?, sortDir: String?): Resources<PreorderResource> {
         val resources = Resources(preorder.map { toResource(it) })
 
+        if (page != null && page > 1) {
+            resources.add(
+                    linkTo(methodOn(PreorderController::class.java).getPreorders(page - 1, sortBy, sortDir)).withSelfRel())
+        }
         resources.add(
                 linkTo(methodOn(PreorderController::class.java).getPreorders(page, sortBy, sortDir)).withSelfRel())
+        resources.add(
+                linkTo(methodOn(PreorderController::class.java).getPreorders(page?.plus(1), sortBy, sortDir)).withRel("next"))
 
         return resources
     }
