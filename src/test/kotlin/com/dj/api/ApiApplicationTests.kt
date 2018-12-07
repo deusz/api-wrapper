@@ -28,7 +28,8 @@ class ApiApplicationTests {
         mvc.perform(
             get("/api/v2/preorders"))
             .andExpect(status().isOk)
-            .andExpect(jsonPath("$[0].id", `is`("1222")))
+            .andExpect(content().string("{\"_embedded\":{\"preorders\":[{\"name\":\"1222\"}]}}"))
+//            .andExpect(jsonPath("$[0].id", `is`("1222")))
 //            .andExpect(jsonPath("$._embedded.preorder[0].id", `is`("1222")))
     }
 

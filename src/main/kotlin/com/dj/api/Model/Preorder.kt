@@ -1,3 +1,5 @@
 package com.dj.api.Model
 
-data class Preorder(val id: String)
+import org.springframework.hateoas.ResourceSupport
+
+data class Preorder(val id: String, val price: Int)
