@@ -30,10 +30,10 @@ class PreorderEntity(
         @JsonProperty("promote_image") val promoteImage: String? = null,
         @JsonProperty("promote_to_date") val promoteToDate: ZonedDateTime? = null,
         @JsonProperty("region") val region: String? = null,
-        @JsonProperty("regular_price") val regularPrice: String? = null,
+        @JsonProperty("regular_price") val regularPrice: Int? = null,
         @JsonProperty("release_date") val releaseDate: ZonedDateTime? = null,
         @JsonProperty("steam_app_id") val steamAppId: String? = null,
         @JsonProperty("steam_score") val steamScore: String? = null,
         @JsonProperty("share_url") val shareUrl: String? = null,
-        @JsonProperty("min_price") val minPrice: String? = null
+        @JsonProperty("min_price") val minPrice: Int? = null
 )

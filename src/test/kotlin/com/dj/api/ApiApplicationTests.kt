@@ -14,10 +14,6 @@ import org.junit.Assert.*
 import org.springframework.cloud.contract.wiremock.WireMockRestServiceServer
 import org.springframework.web.client.RestTemplate
 
-
-
-
-
 @RunWith(SpringRunner::class)
 @SpringBootTest
 @AutoConfigureMockMvc
