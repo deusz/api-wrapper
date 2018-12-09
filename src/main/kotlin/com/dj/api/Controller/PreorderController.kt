@@ -1,6 +1,7 @@
 package com.dj.api.Controller
 
-import com.dj.api.Model.Preorder
+import com.dj.api.Repository.PreorderEntity
+import com.dj.api.Service.PreorderService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.hateoas.Resources
@@ -10,7 +11,7 @@ data class Pag(val page: Int?, val sortBy: String?)
 
 @RestController
 //@RequestMapping(name = "preorders", path = arrayOf("/api/v2/preorders"))
-class PreorderController(val assembler: PreorderResourceAssembler) {
+class PreorderController(val assembler: PreorderResourceAssembler, val preorderService: PreorderService) {
 
     @GetMapping
     @RequestMapping("/api/v2/preorders")
@@ -20,7 +21,7 @@ class PreorderController(val assembler: PreorderResourceAssembler) {
             @RequestParam("sort.dir") sortDir: String?
     ): ResponseEntity<Resources<PreorderResource>> {
 
-        val resources = assembler.toResources(arrayOf(Preorder("1222", 1)).asIterable(), page, sortBy, sortDir)
+        val resources = assembler.toResources(preorderService.findPreorders(page, sortBy, sortDir)!!.asIterable(), page, sortBy, sortDir)
 
         return ok(resources)
     }
@@ -28,6 +29,6 @@ class PreorderController(val assembler: PreorderResourceAssembler) {
     @GetMapping
     @RequestMapping("/api/v2/preorders/{id}")
     fun getPreorder(@PathVariable("id") id: String): ResponseEntity<PreorderResource> =
-            ok(assembler.toResource(Preorder(id, 1)))
+            ok(assembler.toResource(PreorderEntity(id)))
 
 }

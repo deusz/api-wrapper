@@ -1,0 +1,31 @@
+{
+  "id" : "ac6a9a82-96ea-4591-abce-c39f5f9b74b0",
+  "name" : "v1_catalog_preorders",
+  "request" : {
+    "url" : "/v1/catalog/preorders?filter%5C%5Bentity_id%5C%5D=7570",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "[{\"entity_id\":7570,\"activation_details\":\"\\r\\n<ol>\\r\\n<li>\\r\\n<p class=\\\"title\\\">Go to: <a href=\\\" http:\\/\\/store.steampowered.com\\/\\\"> http:\\/\\/store.steampowered.com\\/<\\/a> and download STEAM client<\\/p>\\r\\n<\\/li>\\r\\n<li>\\r\\n<p class=\\\"title\\\">Click \\\"Install Steam\\\" (from the upper right corner)<\\/p>\\r\\n<a href=\\\"http:\\/\\/cdn.steampowered.com\\/download\\/SteamInstall.msi\\\" target=\\\"_blank\\\"><span class=\\\"download-button\\\">Download Steam <i class=\\\"fa fa-angle-right\\\"><\\/i><\\/span><\\/a>\\r\\n<\\/li>\\r\\n<li>\\r\\n<p class=\\\"title\\\">Install and start application, login with your Account name and Password (create one if you don't have).<\\/p>\\r\\n<\\/li>\\r\\n<li>\\r\\n<p class=\\\"title\\\">Please follow these instructions to activate a new retail purchase on Steam:<\\/p>\\r\\n<ul>\\r\\n<li>Launch Steam and log into your Steam account.<\\/li>\\r\\n<li>Click the Games Menu.<\\/li>\\r\\n<li>Choose Activate a Product on Steam...<\\/li>\\r\\n<li>Follow the onscreen instructions to complete the process.<\\/li>\\r\\n<\\/ul>\\r\\n<p>After successful code verification go to the \\\"MY GAMES\\\" tab and start downloading.<\\/p>\\r\\n<\\/li>\\r\\n<\\/ol>\\r\\n\",\"custom_bg\":null,\"custom_bg_left\":null,\"custom_bg_right\":null,\"description\":\"<p><strong>Includes:<\\/strong><\\/p>\\r\\n<div class=\\\"pre_orders_included_content\\\">\\r\\n<ul>\\r\\n<li>Base game<\\/li>\\r\\n<\\/ul>\\r\\n<\\/div>\\r\\n<p>Several months after the events on Banoi, the United States military has put the Golden State under full quarantine. Now a restricted zone, California has become a bloody paradise for those who refuse to leave their homes and an action-packed playground for renegades who seek adventure, glory and a fresh start. Combining the classic Dead Island elements of immersive close combat, action and role-playing, Dead Island 2 features crazy, never-before-seen handcrafted weapons and over-the-top characters in taking players from the iconic Golden Gate to the celebrated beachfront boardwalk of southern California&rsquo;s Venice Beach.<\\/p>\\r\\n<h2 style=\\\"text-align: left;\\\">Features<\\/h2>\\r\\n<div class=\\\"content\\\" style=\\\"margin-left: 15px;\\\">\\r\\n<ul class=\\\"features-list\\\" style=\\\"list-style-type: disc;\\\">\\r\\n<li><span>California! Vast exploration and outlandish survival, welcome to the Golden State as zombie playground.<\\/span><\\/li>\\r\\n<li><span>Characters! Choose from an elite crew of heroes who are immune to the zombie virus and eager to run headfirst into the apocalypse.<\\/span><\\/li>\\r\\n<li><span>Combat! Fight against hordes of zombies as well as human enemies ? visceral melee combat at its best.<\\/span><\\/li>\\r\\n<li><span>Crafting! From motorized grinders to electric machetes, decide how you want to dismember these zombies.<\\/span><\\/li>\\r\\n<li><span>Co-op! Seamless zombie multiplayer evolved for up to 8 players, letting you drop in and out of shared survival adventures.<\\/span><\\/li>\\r\\n<\\/ul>\\r\\n<p>&nbsp;<\\/p>\\r\\n<p>&nbsp;<\\/p>\\r\\n<p>&nbsp;<\\/p>\\r\\n<\\/div>\",\"frontpage_image\":\"https:\\/\\/cdns.kinguin.net\\/media\\/catalog\\/category\\/cache\\/1\\/frontpage_image\\/9df78eab33525d08d6e5fb8d27136e95\\/di2s.jpg\",\"image\":\"https:\\/\\/cdns.kinguin.net\\/media\\/catalog\\/category\\/cache\\/1\\/image\\/173x120\\/17f82f742ffe127f42dca9de82fb58b1\\/81JUx766bZL._SL1280__1.jpg\",\"is_active\":1,\"is_indie_valley\":0,\"is_ingame\":0,\"is_steamgift\":0,\"metacritic_score\":null,\"name\":\"Dead Island 2 PRE-ORDER Steam CD Key\",\"news_from_date\":\"2014-06-18T00:00:00+00:00\",\"news_to_date\":\"2014-07-02T00:00:00+00:00\",\"note\":\"This is a PRE-ORDER, the key will be delivered upon the game's release date: late 2017! Bonuses, if included, may differ from offers on other stores!\",\"origin_score\":null,\"platform\":2,\"preorder_from_date\":\"2014-06-18T00:00:00+00:00\",\"preorder_to_date\":\"2019-12-31T00:00:00+00:00\",\"promote_from_date\":null,\"promote_image\":\"https:\\/\\/cdns.kinguin.net\\/media\\/catalog\\/category\\/cache\\/1\\/promote_image\\/9df78eab33525d08d6e5fb8d27136e95\\/di2.jpg\",\"promote_to_date\":null,\"region\":3,\"regular_price\":49.99,\"release_date\":null,\"steam_app_id\":268150,\"steam_score\":null,\"sys_req\":[{\"system\":\"Windows\",\"requirement\":\"<p><strong>TBA<\\/strong><\\/p>\"}],\"thumbnail\":\"81JUx766bZL._SL1280_.jpg\",\"url_key\":\"dead-island-2-steam-key\",\"hi_image\":\"https:\\/\\/cdns.kinguin.net\\/media\\/catalog\\/category\\/cache\\/1\\/hi_image\\/9df78eab33525d08d6e5fb8d27136e95\\/800di2.jpg\",\"regional_limitations\":\"https:\\/\\/cdns.kinguin.net\\/media\\/region\\/world-wide-center_1.jpg\",\"share_url\":\"https:\\/\\/www.kinguin.net\\/category\\/7570\",\"min_price\":43.04}]",
+    "headers" : {
+      "Date" : "Sat, 08 Dec 2018 00:27:35 GMT",
+      "Content-Type" : "application/json; charset=utf-8",
+      "Connection" : "keep-alive",
+      "Vary" : "Accept-Encoding",
+      "x-total-count" : "1",
+      "X-Cache-Client" : "60",
+      "Age" : "215",
+      "Access-Control-Allow-Origin" : "*",
+      "Accept-Ranges" : "bytes",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "Set-Cookie" : [ "SERVERID=var-api; path=/", "grey_wizard=xAVQLJCvyME3Wm2coExfEaULMir%2FNmN1B7dc1SoF7vuAtzK6PysXRhyaIEqDSi362b8V3LxwPfiKIk4XCb0SaPDxP1v5VePiUXof4%2BdIRau3IOeEgxKsWm7svR6X7xG2; path=/; domain=.api.kinguin.net; Expires=Sat, 08-Dec-18 01:27:35 GMT; HttpOnly" ],
+      "Cache-control" : "private",
+      "GW-Server" : "greywizard-1.9",
+      "Server" : "greywizard-1.9",
+      "X-XSS-Protection" : "1; mode=block"
+    }
+  },
+  "uuid" : "ac6a9a82-96ea-4591-abce-c39f5f9b74b0",
+  "persistent" : true
+}
