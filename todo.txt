@@ -1,0 +1,24 @@
+Do it:
+5. cache api collection
+6. sort, filter, page collection
+7. ui
+8. install, configure hal browser
+9. docker api and web
+10. ab tests
+11. minicube and helm
+12. fallback solution for dead api
+
+Requirements:
+```
+[-] hal
+[-] resiliency
+[-] api docs
+[-] ui
+[-] docker
+[-] k8s
+[-] code design
+[-] code quality
+[-] tests quality
+[-] performance
+[-] readme
+```

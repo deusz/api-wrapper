@@ -6,8 +6,8 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.hateoas.Resources
 import org.springframework.http.ResponseEntity.ok
-
-data class Pag(val page: Int?, val sortBy: String?)
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @RestController
 //@RequestMapping(name = "preorders", path = arrayOf("/api/v2/preorders"))
@@ -16,12 +16,13 @@ class PreorderController(val assembler: PreorderResourceAssembler, val preorderS
     @GetMapping
     @RequestMapping("/api/v2/preorders")
     fun getPreorders(
-            @RequestParam("page") page: Int?,
-            @RequestParam("sort.by") sortBy: String?,
-            @RequestParam("sort.dir") sortDir: String?
+            pageable: Pageable
+//            @RequestParam("page") page: Int?,
+//            @RequestParam("sort.by") sortBy: String?,
+//            @RequestParam("sort.dir") sortDir: String?
     ): ResponseEntity<Resources<PreorderResource>> {
 
-        val resources = assembler.toResources(preorderService.findPreorders(page, sortBy, sortDir)!!.asIterable(), page, sortBy, sortDir)
+        val resources = assembler.toResources(preorderService.findPreorders(pageable)!!.asIterable(), pageable)
 
         return ok(resources)
     }

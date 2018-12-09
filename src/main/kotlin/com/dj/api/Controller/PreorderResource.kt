@@ -1,6 +1,7 @@
 package com.dj.api.Controller
 
 import com.dj.api.Repository.PreorderEntity
+import org.springframework.data.domain.Pageable
 import org.springframework.hateoas.ResourceSupport
 import org.springframework.hateoas.ResourceAssembler
 import org.springframework.hateoas.Resources
@@ -15,17 +16,17 @@ data class PreorderResource(val name: String) : ResourceSupport()
 @Component
 class PreorderResourceAssembler : ResourceAssembler<PreorderEntity, PreorderResource> {
 
-    fun toResources(preorder: Iterable<PreorderEntity>, page: Int?, sortBy: String?, sortDir: String?): Resources<PreorderResource> {
+    fun toResources(preorder: Iterable<PreorderEntity>, pageable: Pageable): Resources<PreorderResource> {
         val resources = Resources(preorder.map { toResource(it) })
 
-        if (page != null && page > 1) {
+        if (pageable.hasPrevious()) {
             resources.add(
-                    linkTo(methodOn(PreorderController::class.java).getPreorders(page - 1, sortBy, sortDir)).withSelfRel())
+                    linkTo(methodOn(PreorderController::class.java).getPreorders(pageable.previousOrFirst())).withRel("prev"))
         }
         resources.add(
-                linkTo(methodOn(PreorderController::class.java).getPreorders(page, sortBy, sortDir)).withSelfRel())
+                linkTo(methodOn(PreorderController::class.java).getPreorders(pageable)).withSelfRel())
         resources.add(
-                linkTo(methodOn(PreorderController::class.java).getPreorders(page?.plus(1), sortBy, sortDir)).withRel("next"))
+                linkTo(methodOn(PreorderController::class.java).getPreorders(pageable.next())).withRel("next"))
 
         return resources
     }
