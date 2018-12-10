@@ -1,15 +1,24 @@
-### Rozwiązanie
-
-Z tego co zauważyłem, preordery są wystawiane w niewielkich ilościach.
-Zdecydowałem się je załadować do cache'a w pamieci (EhCache). I zrobic paging 
+### Solution
+I see, there is usually less than 40 of preorders in API v1.
+I decided to load all to cache (EhCache) and implement List paging.
  
+### Tests run
+```
+gradle task :api:test
+```
 
-### Uruchomienie z docker-compose
+### Run with gradle
+``` 
+gradle task :core:bootRun
+gradle task :web:npmDev
+```
+
+### Run with docker-compose
 ```
 docker-compose up -d
 ```
 
-### Uruchomienie z k8s
+### Run with kubernetes
 ```
 minikube start
 minikube config set vm-driver [your vm]
@@ -17,11 +26,11 @@ kubectl config use-context minikube
 
 kubectl get pod
 
-# gdy pody sa juz `runnig`, to sprawdz adres frontendu
+# when pods are `runnig`, open browser
 open $(minikube service --url kinguin-web)
 ```
 
-### Testy wydajnościowe (po rozgrzaniu kesza jest szybciej):
+### Performance tests (after cache warm up is faster):
 ```
 U-779:kinguin deusz$ ab -n 1000 -c 20 http://localhost:9080/api/v2/preorders?page=2&sort=name
 [1] 39913
