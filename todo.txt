@@ -1,6 +1,4 @@
 Do it:
-5. cache api collection
-6. sort, filter, page collection
 7. ui
 8. install, configure hal browser
 9. docker api and web

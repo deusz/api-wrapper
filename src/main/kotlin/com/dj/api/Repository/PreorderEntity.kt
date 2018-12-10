@@ -1,24 +1,27 @@
 package com.dj.api.Repository
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import java.math.BigDecimal
 import java.time.LocalTime
 import java.time.ZonedDateTime
 
 class PreorderEntity(
-        @JsonProperty("entity_id") val id: String,
+        @JsonProperty("entity_id") val id: Int,
+        @JsonProperty("image") val imageUrl: String? = null,
+        @JsonProperty("regular_price") val regularPrice: BigDecimal? = null,
+        @JsonProperty("min_price") val minPrice: BigDecimal? = null,
+        @JsonProperty("name") val name: String? = null,
         @JsonProperty("activation_details") val activationDetails: String? = null,
         @JsonProperty("custom_bg") val customBg: String? = null,
         @JsonProperty("custom_bg_left") val customBgLeft: String? = null,
         @JsonProperty("custom_bg_right") val customBgRight: String? = null,
         @JsonProperty("description") val description: String? = null,
         @JsonProperty("frontpage_image") val frontpageImage: String? = null,
-        @JsonProperty("image") val image: String? = null,
         @JsonProperty("is_active") val isActive: String? = null,
         @JsonProperty("is_indie_valley") val isIndieValley: String? = null,
         @JsonProperty("is_ingame") val isIngame: String? = null,
         @JsonProperty("is_steamgift") val isSteamgift: String? = null,
         @JsonProperty("metacritic_score") val metacriticScore: String? = null,
-        @JsonProperty("name") val name: String? = null,
         @JsonProperty("news_from_date") val newsFromDate: ZonedDateTime? = null,
         @JsonProperty("news_to_date") val newsToDate: ZonedDateTime? = null,
         @JsonProperty("note") val note: String? = null,
@@ -30,10 +33,8 @@ class PreorderEntity(
         @JsonProperty("promote_image") val promoteImage: String? = null,
         @JsonProperty("promote_to_date") val promoteToDate: ZonedDateTime? = null,
         @JsonProperty("region") val region: String? = null,
-        @JsonProperty("regular_price") val regularPrice: Int? = null,
         @JsonProperty("release_date") val releaseDate: ZonedDateTime? = null,
         @JsonProperty("steam_app_id") val steamAppId: String? = null,
         @JsonProperty("steam_score") val steamScore: String? = null,
-        @JsonProperty("share_url") val shareUrl: String? = null,
-        @JsonProperty("min_price") val minPrice: Int? = null
+        @JsonProperty("share_url") val shareUrl: String? = null
 )

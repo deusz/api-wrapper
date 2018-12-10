@@ -11,6 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean
 import org.mockito.Mockito
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort
+import java.math.BigDecimal
 
 @RunWith(SpringRunner::class)
 class PreorderServiceTests {
@@ -19,11 +20,11 @@ class PreorderServiceTests {
     lateinit var preorderRepository: PreorderRepository
 
     private val preorders = listOf(
-            PreorderEntity("7", regularPrice = 70),
-            PreorderEntity("4", regularPrice = 40),
-            PreorderEntity("1", regularPrice = 10),
-            PreorderEntity("2", regularPrice = 20),
-            PreorderEntity("8", regularPrice = 80)
+            PreorderEntity(7, regularPrice = BigDecimal(70)),
+            PreorderEntity(4, regularPrice = BigDecimal(40)),
+            PreorderEntity(1, regularPrice = BigDecimal(10)),
+            PreorderEntity(2, regularPrice = BigDecimal(20)),
+            PreorderEntity(8, regularPrice = BigDecimal(80))
     )
 
     @Test
@@ -66,6 +67,26 @@ class PreorderServiceTests {
         )
 
         assertEquals(result, listOf(preorders[2], preorders[3], preorders[1]))
+    }
+
+    @Test
+    fun givenList_whenGetById_thenReturnPreorder() {
+        Mockito.`when`(preorderRepository.findPreorders())
+                .thenReturn(preorders)
+
+        val result = PreorderService(preorderRepository).findPreorder(1)
+
+        assertEquals(result, preorders[2])
+    }
+
+    @Test
+    fun givenList_whenGetNonExisting_thenReturnNull() {
+        Mockito.`when`(preorderRepository.findPreorders())
+                .thenReturn(preorders)
+
+        val result = PreorderService(preorderRepository).findPreorder(111)
+
+        assertNull(result)
     }
 
 }

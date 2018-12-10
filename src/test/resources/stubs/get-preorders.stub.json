@@ -2,7 +2,7 @@
   "id" : "ab8f5d33-74ec-4843-b03f-8e263edaaa9f",
   "name" : "v1_catalog_preorders",
   "request" : {
-    "url" : "/v1/catalog/preorders",
+    "url" : "/v1/catalog/preorders?limit=100",
     "method" : "GET"
   },
   "response" : {

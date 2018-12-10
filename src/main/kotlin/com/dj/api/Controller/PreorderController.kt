@@ -2,34 +2,34 @@ package com.dj.api.Controller
 
 import com.dj.api.Repository.PreorderEntity
 import com.dj.api.Service.PreorderService
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Pageable
+import org.springframework.data.web.PageableDefault
+import org.springframework.data.web.PagedResourcesAssembler
+import org.springframework.hateoas.PagedResources
+import org.springframework.hateoas.Resource
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
-import org.springframework.hateoas.Resources
+import org.springframework.http.ResponseEntity.notFound
 import org.springframework.http.ResponseEntity.ok
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*
 
 @RestController
-//@RequestMapping(name = "preorders", path = arrayOf("/api/v2/preorders"))
-class PreorderController(val assembler: PreorderResourceAssembler, val preorderService: PreorderService) {
+@RequestMapping(name = "preorders", path = ["/api/v2/preorders"])
+class PreorderController(
+        val assembler: PreorderResourceAssembler,
+        val preorderService: PreorderService
+) {
 
-    @GetMapping
-    @RequestMapping("/api/v2/preorders")
-    fun getPreorders(
-            pageable: Pageable
-//            @RequestParam("page") page: Int?,
-//            @RequestParam("sort.by") sortBy: String?,
-//            @RequestParam("sort.dir") sortDir: String?
-    ): ResponseEntity<Resources<PreorderResource>> {
+    @RequestMapping(method = [RequestMethod.GET])
+    fun getPreorders(@PageableDefault pageable: Pageable, pageAssembler: PagedResourcesAssembler<PreorderResource> ): PagedResources<Resource<PreorderResource>> =
+            pageAssembler.toResource(
+                    preorderService.findPreorders(pageable).map { assembler.toResource(it) }
+            )
 
-        val resources = assembler.toResources(preorderService.findPreorders(pageable)!!.asIterable(), pageable)
-
-        return ok(resources)
-    }
-
-    @GetMapping
-    @RequestMapping("/api/v2/preorders/{id}")
-    fun getPreorder(@PathVariable("id") id: String): ResponseEntity<PreorderResource> =
-            ok(assembler.toResource(PreorderEntity(id)))
-
+    @RequestMapping("{id}", method = [RequestMethod.GET])
+    fun getPreorder(@PathVariable("id") id: Int): ResponseEntity<PreorderDetailsResource?> =
+            when (val preorder = preorderService.findPreorder(id)) {
+                is PreorderEntity -> ok(assembler.toDetailsResource(preorder))
+                else -> notFound().build()
+            }
 }
