@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: kinguin-web
-          image: docker.io/damianeusz/kinguin-web
+          image: docker.io/damianeusz/kinguin-web:v5
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8098

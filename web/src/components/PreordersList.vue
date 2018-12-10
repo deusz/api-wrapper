@@ -59,7 +59,7 @@
     },
 
     created() {
-      axios.get(`http://localhost:9080/api/v2/preorders`)
+      axios.get(`http://${window.location.hostname}:30010/api/v2/preorders`)
         .then(response => {
           console.log(response.data);
           this.preorders = response.data._embedded.preorderResources

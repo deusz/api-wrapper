@@ -15,7 +15,6 @@ minikube start
 minikube config set vm-driver [your vm]
 kubectl config use-context minikube
 
-
 kubectl get pod
 
 # gdy pody sa juz runnig, to sprawdz adres frontendu

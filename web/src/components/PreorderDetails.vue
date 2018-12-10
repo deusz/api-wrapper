@@ -52,7 +52,7 @@
 
     // Fetches posts when the component is created.
     created() {
-      axios.get(`http://localhost:9080/api/v2/preorders/${this.entityId}`)
+      axios.get(`http://${window.location.hostname}:30010/api/v2/preorders/${this.entityId}`)
       .then(response => {
         this.preorder = response.data
       })
