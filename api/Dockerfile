@@ -1,5 +1,5 @@
 FROM java:8
 VOLUME /tmp
-EXPOSE 8080
-ADD store-1.0.jar store-1.0.jar
-ENTRYPOINT ["java","-jar","store-1.0.jar"]
+EXPOSE 8085
+ADD api-0.0.1-SNAPSHOT.jar kinguin-api.jar
+ENTRYPOINT ["java","-jar","kinguin-api.jar"]

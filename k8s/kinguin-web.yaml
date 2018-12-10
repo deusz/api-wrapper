@@ -1,0 +1,33 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: kinguin-web
+spec:
+  selector:
+    app: kinguin-web
+  ports:
+  - protocol: TCP
+    port: 8098
+    nodePort: 30001
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kinguin-web
+spec:
+  selector:
+      matchLabels:
+        app: kinguin-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kinguin-web
+    spec:
+      containers:
+        - name: kinguin-web
+          image: docker.io/damianeusz/kinguin-web
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8098

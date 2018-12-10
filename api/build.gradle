@@ -10,6 +10,7 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
         classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+        classpath('se.transmode.gradle:gradle-docker:1.2')
     }
 }
 
@@ -18,10 +19,20 @@ apply plugin: 'kotlin-spring'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'docker'
 
 group = 'com.dj'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+
+jar {
+    baseName = 'api'
+    version =  '0.0.1-SNAPSHOT'
+}
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 compileKotlin {
     kotlinOptions {
         freeCompilerArgs = ["-Xjsr305=strict"]
@@ -44,14 +55,27 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.springframework.boot:spring-boot-starter-hateoas')
     implementation('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('org.springframework.data:spring-data-rest-hal-browser')
+
     implementation('com.fasterxml.jackson.module:jackson-module-kotlin')
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.asynchttpclient:async-http-client:2.2.0")
+
     runtimeOnly('org.springframework.boot:spring-boot-devtools')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     testImplementation('org.springframework.cloud:spring-cloud-starter-contract-stub-runner:2.0.2.RELEASE')
-// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
-    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.6'
-
+    compile('org.apache.httpcomponents:httpclient:4.5.6')
 }
+
+task buildDocker (type: Docker, dependsOn: build) {
+    applicationName = jar.baseName
+    dockerfile = file('Dockerfile')
+    doFirst {
+        copy {
+            from jar
+            into stageDir
+        }
+    }
+}
+

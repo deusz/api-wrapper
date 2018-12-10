@@ -8,7 +8,6 @@ import org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn
 import org.springframework.stereotype.Component
 import java.math.BigDecimal
 
-//@ Relation(collectionRelation = "preorders")
 data class PreorderResource(
         val entityId: Int,
         val name: String?,

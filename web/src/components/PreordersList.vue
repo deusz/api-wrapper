@@ -14,13 +14,13 @@
       </div>
 
       <el-table-column width="100">
-        <template scope="props">
+        <template slot-scope="props">
           <img v-bind:src="props.row.imageUrl" />
         </template>
       </el-table-column>
 
       <el-table-column label="Nazwa" width="400">
-        <template scope="props">
+        <template slot-scope="props">
           <router-link :to="{ name: 'preorder-get', params: { entityId: props.row.entityId }}">{{ props.row.name }}</router-link>
           <!--<a v-bind:href="?accountId=''+props.row.accountId+''">{{ props.row.accountId }}</a>-->
         </template>
