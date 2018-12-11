@@ -24,6 +24,9 @@ minikube start
 minikube config set vm-driver [your vm]
 kubectl config use-context minikube
 
+kubectl apply -f k8s/kinguin-api.yaml
+kubectl apply -f k8s/kinguin-web.yaml
+
 kubectl get pod
 
 # when pods are `runnig`, open browser

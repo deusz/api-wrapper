@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: kinguin-api
-          image: docker.io/damianeusz/kinguin-api
-          imagePullPolicy: Never
+          image: docker.io/damianeusz/kinguin-api:v3
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9080
