@@ -1,6 +1,6 @@
 package com.dj.api
 
-import com.dj.api.Repository.PreorderEntity
+import com.dj.api.Model.PreorderEntity
 import com.dj.api.Repository.PreorderRepository
 import com.dj.api.Service.PreorderService
 import org.junit.Test

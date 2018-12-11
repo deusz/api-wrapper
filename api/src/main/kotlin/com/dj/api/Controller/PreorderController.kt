@@ -1,8 +1,7 @@
 package com.dj.api.Controller
 
-import com.dj.api.Repository.PreorderEntity
+import com.dj.api.Model.PreorderEntity
 import com.dj.api.Service.PreorderService
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault
 import org.springframework.data.web.PagedResourcesAssembler

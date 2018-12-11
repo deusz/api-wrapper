@@ -1,5 +1,6 @@
 package com.dj.api.Repository
 
+import com.dj.api.Model.PreorderEntity
 import org.slf4j.LoggerFactory
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.web.client.RestTemplate

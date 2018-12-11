@@ -1,6 +1,6 @@
 package com.dj.api.Service
 
-import com.dj.api.Repository.PreorderEntity
+import com.dj.api.Model.PreorderEntity
 import com.dj.api.Repository.PreorderRepository
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageImpl

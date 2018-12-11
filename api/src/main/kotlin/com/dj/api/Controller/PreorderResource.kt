@@ -1,6 +1,6 @@
 package com.dj.api.Controller
 
-import com.dj.api.Repository.PreorderEntity
+import com.dj.api.Model.PreorderEntity
 import org.springframework.hateoas.ResourceSupport
 import org.springframework.hateoas.ResourceAssembler
 import org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo
